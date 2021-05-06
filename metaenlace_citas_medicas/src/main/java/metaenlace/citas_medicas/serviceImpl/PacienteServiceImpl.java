@@ -87,9 +87,7 @@ public class PacienteServiceImpl implements PacienteService{
 			for(Integer IDmedico: nuevoPaciente.getPacienteMedicosUserID()) {
 				Optional<Medico> medicoExists = medicoRepository.findById(IDmedico);
 				if (medicoExists.isPresent()) {
-					Medico a = new Medico();
-					a.setUserID(IDmedico);
-					listaMedicos.add(a);
+					listaMedicos.add(medicoExists.get());
 				}
 				
 				}
